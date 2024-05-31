@@ -1,7 +1,0 @@
-vector<int> calculateCharacterFrequency(string str) {
-        vector<int> frequency(256, 0);
-        for (char ch : str) {
-            frequency[ch]++;
-        }
-        return frequency;
-    }

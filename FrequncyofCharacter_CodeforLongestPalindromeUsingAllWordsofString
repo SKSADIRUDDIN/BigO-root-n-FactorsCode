@@ -1,0 +1,24 @@
+vector<int> calculateCharacterFrequency(string str) {
+        vector<int> frequency(256, 0);
+        for (char ch : str) {
+            frequency[ch]++;
+        }
+        return frequency;
+    }
+
+// CodeforLongestPalindromeUsingAllWordsofString 
+//O(N)
+int longestPalindrome(string s) {
+        vector<int> ans = calculateCharacterFrequency(s);
+        int odd = 0, total = 0;
+        for (int i = 0; i < 256; i++) {
+            total += ans[i];
+            if (ans[i] % 2 != 0) {
+                odd++;
+            }
+        }
+        if (odd >= 2) {
+            return total - odd +1; //+1 because minimum 1 charcater can be have odd freq
+        } else
+            return total;
+    }
